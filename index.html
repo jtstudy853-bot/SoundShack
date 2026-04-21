@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chord Song Tabs Builder</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Pro Chord Sheet Studio</p>
+        <h1>SoundShack</h1>
+      </div>
+      <div class="topbar-actions">
+        <button id="saveBtn" type="button">Save Song</button>
+      </div>
+    </header>
+
+    <main class="app">
+      <section class="panel composer-panel">
+        <h2>Song Details</h2>
+        <div class="field">
+          <label for="songTitle">Song title</label>
+          <input id="songTitle" type="text" placeholder="Example: Let It Be" />
+        </div>
+
+        <div class="inline-add">
+          <input id="sectionInput" type="text" placeholder="Section name (Verse, Chorus)" />
+          <button id="addSectionBtn" type="button">Add Section</button>
+        </div>
+
+        <div class="field">
+          <label for="sectionSelect">Add lines into section</label>
+          <select id="sectionSelect"></select>
+        </div>
+
+        <div class="field">
+          <label for="linesInput">Lyrics lines (paste/type multiple lines)</label>
+          <textarea
+            id="linesInput"
+            rows="4"
+            placeholder="Line 1&#10;Line 2&#10;Line 3"
+          ></textarea>
+        </div>
+
+        <button id="addLinesBtn" type="button">Add Lines</button>
+
+        <p class="help">
+          Sections can be collapsed. Line numbers restart inside each section. Click only
+          on chord slots you want to use.
+        </p>
+
+        <div id="lineEditor" class="line-editor"></div>
+
+        <h3>Saved songs</h3>
+        <ul id="savedSongs" class="saved-list"></ul>
+      </section>
+
+      <section class="panel preview-panel">
+        <div class="preview-header">
+          <h2 id="previewTitle">Live Preview</h2>
+        </div>
+        <div id="tabSheet" class="tab-sheet"></div>
+      </section>
+    </main>
+
+    <div id="chordModal" class="modal hidden" role="dialog" aria-modal="true">
+      <div class="modal-content">
+        <h3>Select a chord</h3>
+        <input
+          id="chordSearch"
+          type="text"
+          placeholder="Search chord (Example: C, Am, F#m7)"
+        />
+        <div id="recommendations" class="recommendations"></div>
+        <div class="modal-actions">
+          <button id="clearChordBtn" type="button" class="secondary">Clear</button>
+          <button id="closeModalBtn" type="button" class="secondary">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
